@@ -47,7 +47,7 @@ module LitmosClient
         when 200, 201 
           # 200 Success. User/Course etc updated, deleted or retrieved
           # 201 Success. User/Course etc created
-          if response.blank?
+          if response.empty?
             true
           else
             if dont_parse_response
@@ -72,7 +72,7 @@ module LitmosClient
     def post(path, params={}, query_params={})
       query_params = query_params.merge(:apikey => @api_key, :source => @source)
       query_string = query_params.collect { |k,v| "#{k}=#{CGI::escape(v)}" }.join('&')
-      query_string = "?#{query_string}" unless query_string.blank?
+      query_string = "?#{query_string}" unless query_string.empty?
 
       dont_parse_response = params.delete(:dont_parse_response)
       
@@ -87,7 +87,7 @@ module LitmosClient
           # 200 Success. User/Course etc updated, deleted or retrieved
           # 201 Success. User/Course etc created
 
-          if response.blank?
+          if response.empty?
             true
           else
             if dont_parse_response
@@ -113,7 +113,7 @@ module LitmosClient
     def put(path, params={}, query_params={})
       query_params = query_params.merge(:apikey => @api_key, :source => @source)
       query_string = query_params.collect { |k,v| "#{k}=#{CGI::escape(v)}" }.join('&')
-      query_string = "?#{query_string}" unless query_string.blank?
+      query_string = "?#{query_string}" unless query_string.empty?
 
       dont_parse_response = params.delete(:dont_parse_response)
       
@@ -128,7 +128,7 @@ module LitmosClient
           # 200 Success. User/Course etc updated, deleted or retrieved
           # 201 Success. User/Course etc created
 
-          if response.blank?
+          if response.empty?
             true
           else
             if dont_parse_response
@@ -166,7 +166,7 @@ module LitmosClient
           # 200 Success. User/Course etc updated, deleted or retrieved
           # 201 Success. User/Course etc created
 
-          if response.blank?
+          if response.empty?
             true
           else
             if dont_parse_response

@@ -16,15 +16,15 @@ module LitmosClient
       nil
     end
 
-    def add_user_to_team(options={})
-      raise ArgumentError.new(":team_id is required") if options[:team_id].empty?
-      raise ArgumentError.new(":user_id is required") if options[:user_id].empty?
+    def add_user_to_team(user_id, team_id)
+      raise ArgumentError.new(":team_id is required") if team_id.empty?
+      raise ArgumentError.new(":user_id is required") if user_id.empty?
 
       params = {
-        'Id' => options[:user_id]
+        'Id' => user_id
       }
 
-      post("teams/#{options[:team_id]}/users", [params])
+      post("teams/#{team_id}/users", [params])
     end
 
     def remove_user_from_team(options={})

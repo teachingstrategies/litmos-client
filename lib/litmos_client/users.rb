@@ -20,7 +20,7 @@ module LitmosClient
       raise ArgumentError.new(":last_name is required") if options[:last_name].empty?
       raise ArgumentError.new(":email is required") if options[:email].empty?
 
-      params = Hash[ options.map{ |k, v| [k.split('_').collect(&:capitalize).join, v]} ]
+      params = Hash[ options.map{ |k, v| [k.to_s.split('_').collect(&:capitalize).join, v]} ]
 
       # params = {
       #   'UserName' => options[:username],
